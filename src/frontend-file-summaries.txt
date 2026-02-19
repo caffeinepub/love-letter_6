@@ -1,0 +1,20 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up React Router with 6 routes (landing, memories, understanding, one-chance, question, final) and wraps them in a Layout component.",
+  "frontend/src/components/HeroSection.tsx": "Hero section displaying the main romantic heading and opening message.",
+  "frontend/src/components/GallerySection.tsx": "Gallery section showing three romantic images with a caption below.",
+  "frontend/src/components/UnderstandingSection.tsx": "Understanding section with apologetic text acknowledging past mistakes and commitment to change.",
+  "frontend/src/components/ActionButtonsSection.tsx": "Action buttons section with two styled response options for the recipient.",
+  "frontend/src/components/QuestionSection.tsx": "Interactive question section with a moving \"No\" button and \"Yes\" button that triggers confirmation message and heart animation.",
+  "frontend/src/components/ClosingSection.tsx": "Closing section with final commitment message and effort statement.",
+  "frontend/src/hooks/useHeartAnimation.ts": "Custom hook that creates and animates 20 floating heart emojis across the viewport.",
+  "frontend/src/index.css": "Global styles with soft pastel pink/white OKLCH color system, golden glow effects, floating hearts animations, responsive design, and romantic theme utilities.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component that provides consistent theme elements including floating hearts background animation and footer with attribution across all pages.",
+  "frontend/src/pages/LandingPage.tsx": "Landing page component displaying the main romantic heading for Tannu with a call-to-action button that navigates to the memories page.",
+  "frontend/src/pages/MemoriesPage.tsx": "Memories page component showing a 3-column photo gallery with captions and Back/Next navigation buttons.",
+  "frontend/src/pages/UnderstandingPage.tsx": "Understanding page component displaying apologetic text acknowledging past mistakes with navigation buttons.",
+  "frontend/src/pages/OneChancePage.tsx": "One Chance page component with commitment text, two action buttons for response options, and Next navigation button.",
+  "frontend/src/pages/QuestionPage.tsx": "Interactive question page with a moving \"No\" button, \"Yes\" button that triggers heart animation, popup message, and Next navigation.",
+  "frontend/src/pages/FinalPage.tsx": "Final page component with glowing commitment text, romantic background, and automatic heart animation trigger on page load.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom pink and gold color palettes in OKLCH format, romantic shadow utilities, and animation definitions.",
+  "frontend/README.md": "Documentation explaining how to replace placeholder images in the frontend/public/assets directory with personal photos."
+}

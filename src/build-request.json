@@ -1,0 +1,223 @@
+{
+  "kind": "build_request",
+  "title": "Convert to multi-page navigation structure with 6 separate pages",
+  "projectName": "Tannu's Love Letter",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-10",
+      "text": "Implement React Router for multi-page navigation structure with routes for 6 separate pages: Landing (/), Memories (/memories), Understanding (/understanding), One Chance (/one-chance), Cute Game (/question), and Final Page (/final)",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Do NOT make it a single scrolling page. Each section should open on a separate page with navigation buttons (Next / Back)."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each page has its own route and URL",
+        "Browser back/forward buttons work correctly",
+        "Navigation maintains consistent theme across pages"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Create Landing Page (/) component with heading 'Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️', subtext 'Mujhe pata hai tum hurt ho… par main effort dena chahta hoon.', and a prominent button labeled 'Please ek baar padh lo 🥺' that navigates to the Memories page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Page 1 – Landing Page",
+          "Add a big button: \"Please ek baar padh lo 🥺\" When clicked → go to Page 2."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Landing page displays heading with Tannu's name",
+        "Button click navigates to /memories route",
+        "Layout is centered and mobile-friendly"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Create Memories Page (/memories) component with title 'Hamari Beautiful memories', photo gallery layout with 3 placeholder images that are easy to replace, three captions ('Tum meri peace ho.', 'Main tumhe akela feel nahi hone dunga.', 'Jo humne banaya hai woh special hai.'), Back button to Landing page, and Next button to Understanding page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Page 2 – Memories Page",
+          "Add a photo gallery layout with placeholders so I can easily upload our photos.",
+          "Add navigation buttons: Back → Landing Next → Understanding"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Gallery displays 3 placeholder images with captions",
+        "Images are stored in a location easy for users to replace",
+        "Back button navigates to /",
+        "Next button navigates to /understanding"
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Create Understanding Page (/understanding) component with title 'Main Samajh Raha Hoon', three paragraphs of text ('Agar tumhe kabhi laga ki tum akeli effort kar rahi ho… I'm sorry.', 'Tum consistency aur security dono deserve karti ho.', 'Main words nahi, actions se prove karna chahta hoon.'), Back button to Memories page, and Next button to One Chance page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Page 3 – Understanding Page",
+          "Add navigation buttons: Back → Memories Next → One Chance"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All three text paragraphs display correctly",
+        "Back button navigates to /memories",
+        "Next button navigates to /one-chance"
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Create One Chance Page (/one-chance) component with title 'Ek Chance… Pyaar Ke Naam 🤍', four lines of text ('Main pressure nahi de raha.', 'Bas ek real chance maang raha hoon.', 'Try karne se sab ho jata hai.', 'Is baar effort pura hoga.'), two action buttons ('Let's Try Again ❤️' and 'Mujhe Thoda Time Chahiye 🤍'), and Next button to question page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Page 4 – One Chance Page",
+          "Add two buttons: \"Let's Try Again ❤️\" \"Mujhe Thoda Time Chahiye 🤍\"",
+          "Add navigation button: Next → Important Question"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Both action buttons display with appropriate styling",
+        "Next button navigates to /question"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Create Cute Game Page (/question) component with title 'Important Question 😌', question text 'Kya tum abhi bhi mujhse pyaar karti ho?', two interactive buttons: 'Nahi 😡' (shows popup message 'Sach me? Soch lo phir se 😏' on click) and 'Haan Obviously ❤️' (shows glowing message 'Mujhe pata tha ❤️' and triggers floating heart animation on click), and Next button to Final page",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Page 5 – Cute Game Page",
+          "Button 1: \"Nahi 😡\" If clicked → show playful popup message: \"Sach me? Soch lo phir se 😏\"",
+          "Button 2: \"Haan Obviously ❤️\" If clicked → show glowing romantic message: \"Mujhe pata tha ❤️\"",
+          "Add floating heart animation when \"Haan\" is clicked."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Nahi button displays popup message without navigation",
+        "Haan button displays glowing message and triggers floating heart animation",
+        "Next button navigates to /final"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Create Final Page (/final) component with large glowing text 'Main Aaj Bhi Tumhe Choose Karta Hoon.', three lines of subtext ('Breakup solution nahi hota.', 'Effort solution hota hai.', 'Aur main ready hoon.'), soft romantic background, and small heart animation that plays on page load",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Page 6 – Final Page",
+          "Big glowing text: \"Main Aaj Bhi Tumhe Choose Karta Hoon.\"",
+          "Add soft romantic background option.",
+          "End with a small heart animation."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Glowing text effect is visible on heading",
+        "Background has soft romantic styling",
+        "Heart animation plays automatically when page loads",
+        "No navigation buttons (final page)"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "Apply consistent theme across all pages: soft pastel pink and white color scheme, warm golden glow effects, subtle floating hearts background animation, large readable fonts (minimum 18px body text), mobile-friendly responsive design, and clean centered layout with adequate spacing",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Theme: Soft pastel pink and white, warm golden glow, subtle floating hearts animation, emotional but mature vibe. Mobile friendly design. Keep layout clean with large readable fonts."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages use consistent pastel pink/white color palette",
+        "Floating hearts animation appears subtly in background across pages",
+        "Text is easily readable on mobile devices",
+        "Layout adapts properly to different screen sizes",
+        "Navigation buttons maintain consistent styling"
+      ]
+    },
+    {
+      "id": "REQ-18",
+      "text": "Refactor existing component files (HeroSection, GallerySection, UnderstandingSection, ActionButtonsSection, QuestionSection, ClosingSection) to work within the new multi-page structure, ensuring each component integrates into its corresponding page route",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Existing section components are reused in appropriate page components",
+        "No duplication of logic or styling",
+        "All interactive features continue to work correctly"
+      ]
+    },
+    {
+      "id": "REQ-19",
+      "text": "Organize photo gallery placeholder images in frontend/public/assets directory with clear naming (memory-1.jpg, memory-2.jpg, memory-3.jpg) to make it easy for users to replace them with their own photos",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "Make it easy to replace images with my own photos.",
+          "Add a photo gallery layout with placeholders so I can easily upload our photos."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Placeholder images are in a clearly labeled public directory",
+        "Image filenames are intuitive and documented",
+        "Replacing images requires only file replacement, no code changes"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not create a single scrolling page; each section must be a separate route",
+    "Maintain existing interactive features (moving No button, heart animation trigger)",
+    "Keep all text content in Hinglish as specified",
+    "Ensure mobile-responsive design across all pages"
+  ],
+  "nonGoals": [
+    "Backend functionality or data persistence",
+    "User authentication or profile management",
+    "Photo upload functionality (users replace files manually)",
+    "Background music or audio features",
+    "Social sharing capabilities"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Soft romantic pastel pink and white gradient background with subtle texture (page-background.dim_1920x1080.png)",
+      "Placeholder romantic couple photo for memory gallery position 1 (memory-1.dim_600x600.jpg)",
+      "Placeholder romantic couple photo for memory gallery position 2 (memory-2.dim_600x600.jpg)",
+      "Placeholder romantic couple photo for memory gallery position 3 (memory-3.dim_600x600.jpg)"
+    ],
+    "edits": []
+  }
+}
