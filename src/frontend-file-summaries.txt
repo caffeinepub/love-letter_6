@@ -1,5 +1,5 @@
 {
-  "frontend/src/App.tsx": "Main application component that sets up React Router with 5 routes (landing, memories, understanding, one-chance, final) and wraps them in a Layout component.",
+  "frontend/src/App.tsx": "Main application component that sets up React Router with 6 routes (landing, memories, understanding, one-chance, game, final) and wraps them in a Layout component.",
   "frontend/src/components/HeroSection.tsx": "Hero section displaying the main romantic heading and opening message.",
   "frontend/src/components/GallerySection.tsx": "Gallery section showing three romantic images with a caption below.",
   "frontend/src/components/UnderstandingSection.tsx": "Understanding section with apologetic text acknowledging past mistakes and commitment to change.",
@@ -7,14 +7,15 @@
   "frontend/src/components/QuestionSection.tsx": "Interactive question section with a moving \"No\" button and \"Yes\" button that triggers confirmation message and heart animation.",
   "frontend/src/components/ClosingSection.tsx": "Closing section with final commitment message and effort statement.",
   "frontend/src/hooks/useHeartAnimation.ts": "Custom hook that creates and animates 20 floating heart emojis across the viewport.",
-  "frontend/src/index.css": "Global styles with soft pastel pink/white OKLCH color system, golden glow effects, floating hearts animations, responsive design, and romantic theme utilities.",
-  "frontend/src/components/Layout.tsx": "Layout wrapper component that provides consistent theme elements including floating hearts background animation and footer with attribution across all pages.",
+  "frontend/src/index.css": "Global styles with soft pastel pink/white OKLCH color system, golden glow effects, floating hearts animations, glowing text effects, photo collage background styles for the Memories page, responsive design, and romantic theme utilities.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component with romantic pink background (bg-pink-50) applied to all pages, includes floating hearts animation and footer with attribution.",
   "frontend/src/pages/LandingPage.tsx": "Landing page component displaying the main romantic heading for tannu with a call-to-action button that navigates to the memories page.",
-  "frontend/src/pages/MemoriesPage.tsx": "Memories page component showing a 3x3 grid gallery with 9 photos and their individual captions, plus Back/Next navigation buttons.",
-  "frontend/src/pages/UnderstandingPage.tsx": "Understanding page component displaying apologetic text acknowledging past mistakes with five lines of text and navigation buttons.",
-  "frontend/src/pages/OneChancePage.tsx": "One Chance page component with commitment text, two interactive action buttons, and an integrated mini game section with moving buttons and heart animations.",
+  "frontend/src/pages/MemoriesPage.tsx": "Memories page displaying a full-page romantic photo collage background with 9 uploaded photos arranged in a non-overlapping 3x3 grid layout with soft pink and golden overlays, and the 9 exact Hinglish captions displayed prominently with white text and dark drop shadow (no blur background) in a scrollable container above the background, plus Back/Next navigation buttons.",
+  "frontend/src/pages/UnderstandingPage.tsx": "Understanding page component displaying apologetic text acknowledging past mistakes with five lines of text and Back/Next navigation buttons.",
+  "frontend/src/pages/OneChancePage.tsx": "One Chance page component with commitment text and two interactive action buttons (Let's Try Again and Mujhe Thoda Time Chahiye), navigating to Understanding and Game pages.",
   "frontend/src/pages/QuestionPage.tsx": "Interactive question page with a moving \"No\" button, \"Yes\" button that triggers heart animation, popup message, and Next navigation.",
-  "frontend/src/pages/FinalPage.tsx": "Final page component with glowing commitment text, six lines of romantic subtext, and automatic heart animation trigger on page load.",
+  "frontend/src/pages/FinalPage.tsx": "Final page component with big glowing text \"Main Aaj Bhi Tumhe Choose Karta Hoon\", consolidated subtext as a single paragraph about effort and consistency, automatic heart animation on page load, and a Back button navigating to the game page, now inheriting the romantic pink background from Layout.",
   "frontend/tailwind.config.js": "Tailwind configuration with custom pink and gold color palettes in OKLCH format, romantic shadow utilities, and animation definitions.",
-  "frontend/README.md": "Documentation explaining how to replace all 9 placeholder images (memory-1.jpg through memory-9.jpg) in the frontend/public/assets directory with personal photos."
+  "frontend/README.md": "Documentation explaining how to replace all 9 placeholder images (photo1.jpg through photo9.jpg) in the frontend/public/assets directory with personal photos.",
+  "frontend/src/pages/GamePage.tsx": "Interactive game page with question \"Kya tum mujhe ek chance dogi?\", moving \"Nahi\" button with playful message, \"Haan\" button that triggers glowing message and 20 floating hearts animation, plus Back/Next navigation."
 }

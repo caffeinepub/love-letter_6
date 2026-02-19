@@ -1,140 +1,25 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-19T15:03:12.165Z",
+  "generatedAt": "2026-02-19T18:13:05.134Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 10,
-    "implemented": 10,
+    "total": 1,
+    "implemented": 1,
     "items": [
       {
-        "id": "REQ-20",
-        "summary": "Expand the Memories Page (/memories) photo gallery from 3 photos to exactly 9 photos displayed in a 3x3 grid layout with individual captions for each photo: 1. 'Tum meri peace ho.', 2. 'Main tumhe akela feel nahi hone dunga.', 3. 'Jo humne banaya hai woh special hai.', 4. 'Har moment tumhare saath important hai.', 5. 'Tum meri safe place ho.', 6. 'Hum perfect nahi, par real hain.', 7. 'Tumhare bina sab adhura lagta hai.', 8. 'Yeh sab yaadein mere liye priceless hain.', 9. 'Main yeh sab lose nahi karna chahta.'",
+        "id": "REQ-1",
+        "summary": "Remove all blur backgrounds from text lines in the memories page, ensuring text appears on a fully transparent or solid background without any blur effect",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/MemoriesPage.tsx"
+          "frontend/src/pages/MemoriesPage.tsx",
+          "frontend/src/index.css"
         ],
         "matchedFiles": [
           "frontend/src/pages/MemoriesPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-21",
-        "summary": "Restructure the site navigation from 6 pages to 5 pages by merging the One Chance page (/one-chance) and the Question page (/question) into a single One Chance page, and update all navigation flows accordingly: Landing (/) → Memories (/memories) → Understanding (/understanding) → One Chance (/one-chance) → Final (/final)",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/pages/OneChancePage.tsx",
-          "frontend/src/pages/QuestionPage.tsx",
-          "frontend/src/pages/UnderstandingPage.tsx",
-          "frontend/src/pages/MemoriesPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/App.tsx",
-          "frontend/src/pages/OneChancePage.tsx",
-          "frontend/src/pages/QuestionPage.tsx",
-          "frontend/src/pages/UnderstandingPage.tsx",
-          "frontend/src/pages/MemoriesPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-22",
-        "summary": "On the One Chance page, when the 'Let's Try Again ❤️' button is clicked, display a romantic glowing message 'I Love You 💋' and trigger the floating heart animation (20 hearts rising from bottom to top over 5 seconds)",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/OneChancePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/OneChancePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-23",
-        "summary": "On the One Chance page, when the 'Mujhe Thoda Time Chahiye 🤍' button is clicked, make the button move slightly to a random nearby position",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/OneChancePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/OneChancePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-24",
-        "summary": "Add a mini game section below the action buttons on the One Chance page with the question 'Kya tum mujhe ek chance dogi?' and two interactive buttons: 'Nahi 😡' (which moves slightly and shows the playful message 'Sach me? Soch lo phir se 😏' when clicked) and 'Haan ❤️' (which shows the glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' and triggers floating hearts animation when clicked)",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/OneChancePage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/OneChancePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-25",
-        "summary": "Update the Understanding page text from 'Main words nahi, actions se prove karna chahta hoon.' to 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/UnderstandingPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/UnderstandingPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-26",
-        "summary": "Update the Final page subtext to include three additional lines: 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' after the existing lines 'Breakup solution nahi hota.', 'Effort solution hota hai.', 'Aur main ready hoon.'",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/FinalPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/FinalPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-27",
-        "summary": "Update the Landing page heading from 'Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️' to 'Hey tannu 🌷… Main Give Up Nahi Kar Raha ❤️' (change 'Tannu' to lowercase 'tannu' and 'Mainn' to 'Main')",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/LandingPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/LandingPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-28",
-        "summary": "Update the Memories page title from 'Hamari Beautiful memories' to 'Hamari Beautiful Story' (capitalize 'Story')",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/src/pages/MemoriesPage.tsx"
-        ],
-        "matchedFiles": [
-          "frontend/src/pages/MemoriesPage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-29",
-        "summary": "Organize 9 photo placeholder images in the frontend/public/assets directory with clear sequential naming (memory-1.jpg through memory-9.jpg) to make it easy for users to replace them with their own photos",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/public/assets/memory-1.jpg",
-          "frontend/public/assets/memory-2.jpg",
-          "frontend/public/assets/memory-3.jpg",
-          "frontend/public/assets/memory-4.jpg",
-          "frontend/public/assets/memory-5.jpg",
-          "frontend/public/assets/memory-6.jpg",
-          "frontend/public/assets/memory-7.jpg",
-          "frontend/public/assets/memory-8.jpg",
-          "frontend/public/assets/memory-9.jpg",
-          "frontend/README.md"
-        ],
-        "matchedFiles": [
-          "frontend/README.md"
         ]
       }
     ]
@@ -144,23 +29,7 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/README.md",
-    "frontend/public/assets/generated/memory-1.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-2.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-3.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-4.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-5.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-6.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-7.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-8.dim_300x300.jpg",
-    "frontend/public/assets/generated/memory-9.dim_300x300.jpg",
-    "frontend/src/App.tsx",
-    "frontend/src/pages/FinalPage.tsx",
-    "frontend/src/pages/LandingPage.tsx",
     "frontend/src/pages/MemoriesPage.tsx",
-    "frontend/src/pages/OneChancePage.tsx",
-    "frontend/src/pages/QuestionPage.tsx",
-    "frontend/src/pages/UnderstandingPage.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

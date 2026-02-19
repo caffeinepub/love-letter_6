@@ -8,19 +8,19 @@ To personalize this website with your own photos:
 
 1. Navigate to the `frontend/public/assets` directory
 2. Replace the following files with your own photos:
-   - `memory-1.jpg` - First memory photo
-   - `memory-2.jpg` - Second memory photo
-   - `memory-3.jpg` - Third memory photo
-   - `memory-4.jpg` - Fourth memory photo
-   - `memory-5.jpg` - Fifth memory photo
-   - `memory-6.jpg` - Sixth memory photo
-   - `memory-7.jpg` - Seventh memory photo
-   - `memory-8.jpg` - Eighth memory photo
-   - `memory-9.jpg` - Ninth memory photo
+   - `photo1.jpg` - First memory photo
+   - `photo2.jpg` - Second memory photo
+   - `photo3.jpg` - Third memory photo
+   - `photo4.jpg` - Fourth memory photo
+   - `photo5.jpg` - Fifth memory photo
+   - `photo6.jpg` - Sixth memory photo
+   - `photo7.jpg` - Seventh memory photo
+   - `photo8.jpg` - Eighth memory photo
+   - `photo9.jpg` - Ninth memory photo
 
 ### Important Notes:
 
-- **Keep the same filenames** (`memory-1.jpg` through `memory-9.jpg`)
+- **Keep the same filenames** (`photo1.jpg` through `photo9.jpg`)
 - **Recommended dimensions**: 600x600 pixels for best display
 - **Supported formats**: JPG, JPEG, PNG
 - **No code changes needed** - just replace the files and refresh your browser

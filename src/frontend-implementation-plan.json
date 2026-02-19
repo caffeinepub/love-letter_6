@@ -1,234 +1,26 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Expand Memories gallery to 9 photos and restructure page flow with integrated mini game",
+  "title": "Remove blur background from text lines",
   "requirements": [
     {
-      "id": "REQ-20",
-      "summary": "Expand Memories page gallery from 3 to 9 photos in a 3x3 grid with individual captions",
+      "id": "REQ-1",
+      "summary": "Remove all blur backgrounds from text lines in the memories page, ensuring text appears on a fully transparent or solid background without any blur effect",
       "acceptanceCriteria": [
-        "Memories page displays exactly 9 photo placeholders in a 3x3 grid",
-        "Each photo has its corresponding caption displayed below it",
-        "Grid maintains responsive design on mobile devices",
-        "Photo placeholders remain easy to replace (using frontend/public/assets/memory-1.jpg through memory-9.jpg)"
+        "Text lines have no blur effect on their backgrounds",
+        "Text remains readable against the photo collage",
+        "All text styling (color, size, positioning) is preserved"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/MemoriesPage.tsx",
           "operation": "modify",
-          "description": "Expand the photo gallery from 3 photos to 9 photos displayed in a 3x3 grid layout. Update the image references to use memory-1.jpg through memory-9.jpg from frontend/public/assets/. Add the corresponding captions for each photo: 1. 'Tum meri peace ho.', 2. 'Main tumhe akela feel nahi hone dunga.', 3. 'Jo humne banaya hai woh special hai.', 4. 'Har moment tumhare saath important hai.', 5. 'Tum meri safe place ho.', 6. 'Hum perfect nahi, par real hain.', 7. 'Tumhare bina sab adhura lagta hai.', 8. 'Yeh sab yaadein mere liye priceless hain.', 9. 'Main yeh sab lose nahi karna chahta.' Ensure the grid is responsive and works well on mobile devices."
-        }
-      ]
-    },
-    {
-      "id": "REQ-21",
-      "summary": "Restructure site navigation from 6 pages to 5 by merging One Chance and Question pages",
-      "acceptanceCriteria": [
-        "Site has exactly 5 pages total",
-        "One Chance page contains both action buttons and mini game sections",
-        "Question page route (/question) is removed from router configuration",
-        "All Back and Next navigation buttons flow correctly through the 5-page structure",
-        "One Chance page Next button navigates directly to Final page"
-      ],
-      "file_operations": [
+          "description": "Remove backdrop-blur classes and blur-related CSS from the memory captions overlay container. Replace with either fully transparent background or solid background that maintains text readability against the photo collage. Preserve all existing text styling including color, font size, and positioning."
+        },
         {
-          "path": "frontend/src/App.tsx",
+          "path": "frontend/src/index.css",
           "operation": "modify",
-          "description": "Remove the /question route from the router configuration, keeping only 5 routes: landing (/), memories (/memories), understanding (/understanding), one-chance (/one-chance), and final (/final). Update route definitions to reflect the new 5-page structure."
-        },
-        {
-          "path": "frontend/src/pages/OneChancePage.tsx",
-          "operation": "modify",
-          "description": "Merge the mini game section from QuestionPage into OneChancePage. Update the Next button to navigate directly to /final instead of /question. Ensure the page now contains both the original action buttons section and the mini game section (which will be implemented in REQ-24). Update all navigation flows to reflect the merged structure."
-        },
-        {
-          "path": "frontend/src/pages/QuestionPage.tsx",
-          "operation": "delete",
-          "description": "Delete the QuestionPage component file as its functionality has been merged into OneChancePage."
-        },
-        {
-          "path": "frontend/src/pages/UnderstandingPage.tsx",
-          "operation": "modify",
-          "description": "Update the Next button to navigate to /one-chance (no change needed if already correct, but verify the navigation flow works with the restructured 5-page site)."
-        },
-        {
-          "path": "frontend/src/pages/MemoriesPage.tsx",
-          "operation": "modify",
-          "description": "Verify and ensure the Next button navigates to /understanding (should already be correct, but confirm navigation flows work with the restructured 5-page site)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-22",
-      "summary": "Display glowing 'I Love You 💋' message and trigger floating hearts when 'Let's Try Again ❤️' is clicked",
-      "acceptanceCriteria": [
-        "'Let's Try Again ❤️' button shows glowing 'I Love You 💋' message when clicked",
-        "Floating hearts animation (20 hearts) triggers on button click",
-        "Message remains visible after hearts animation completes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/OneChancePage.tsx",
-          "operation": "modify",
-          "description": "Add click handler to the 'Let's Try Again ❤️' button that displays a glowing romantic message 'I Love You 💋' and triggers the floating heart animation using the useHeartAnimation hook. Ensure the message remains visible after the hearts animation completes (5 seconds). Apply glowing styles consistent with the existing theme."
-        }
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "summary": "Make 'Mujhe Thoda Time Chahiye 🤍' button move to random position when clicked",
-      "acceptanceCriteria": [
-        "'Mujhe Thoda Time Chahiye 🤍' button moves to a random position when clicked",
-        "Button movement is subtle (not too far from original position)",
-        "Button remains clickable after moving"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/OneChancePage.tsx",
-          "operation": "modify",
-          "description": "Add click handler to the 'Mujhe Thoda Time Chahiye 🤍' button that moves the button to a random nearby position using transform/translate CSS. Ensure movement is subtle (within 50-100px) and the button remains clickable after moving. Use state to track button position."
-        }
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "summary": "Add mini game section with interactive 'Nahi 😡' and 'Haan ❤️' buttons below action buttons",
-      "acceptanceCriteria": [
-        "Mini game section appears below the action buttons with question 'Kya tum mujhe ek chance dogi?'",
-        "'Nahi 😡' button moves slightly when clicked and displays message 'Sach me? Soch lo phir se 😏'",
-        "'Haan ❤️' button displays glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' when clicked",
-        "'Haan ❤️' button triggers floating hearts animation when clicked",
-        "Both buttons remain interactive after their respective actions"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/OneChancePage.tsx",
-          "operation": "modify",
-          "description": "Add a mini game section below the existing action buttons. Display the question 'Kya tum mujhe ek chance dogi?' with two interactive buttons: 'Nahi 😡' and 'Haan ❤️'. For 'Nahi 😡': add click handler that moves the button slightly to a random position and shows the playful message 'Sach me? Soch lo phir se 😏'. For 'Haan ❤️': add click handler that displays the glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' and triggers the floating hearts animation using useHeartAnimation hook. Ensure both buttons remain interactive after their actions and messages are displayed with appropriate styling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "summary": "Update Understanding page text to 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
-      "acceptanceCriteria": [
-        "Understanding page displays the updated text 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
-        "Other text on the Understanding page remains unchanged"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/UnderstandingPage.tsx",
-          "operation": "modify",
-          "description": "Update the text from 'Main words nahi, actions se prove karna chahta hoon.' to 'Main sirf bolna nahi… actions se prove karna chahta hoon.' Ensure all other text on the page remains unchanged."
-        }
-      ]
-    },
-    {
-      "id": "REQ-26",
-      "summary": "Add three additional subtext lines to Final page: 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.'",
-      "acceptanceCriteria": [
-        "Final page displays all six lines of subtext in order",
-        "New lines 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' appear after the existing three lines",
-        "Text maintains consistent styling with the rest of the page"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/FinalPage.tsx",
-          "operation": "modify",
-          "description": "Add three additional lines to the subtext after the existing lines 'Breakup solution nahi hota.', 'Effort solution hota hai.', 'Aur main ready hoon.' The new lines are: 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' Ensure all six lines display in order with consistent styling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-27",
-      "summary": "Update Landing page heading: change 'Tannu' to lowercase 'tannu' and 'Mainn' to 'Main'",
-      "acceptanceCriteria": [
-        "Landing page heading displays 'tannu' in lowercase",
-        "Landing page heading displays 'Main' with single 'n'",
-        "Rest of the heading text remains unchanged"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/LandingPage.tsx",
-          "operation": "modify",
-          "description": "Update the heading text from 'Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️' to 'Hey tannu 🌷… Main Give Up Nahi Kar Raha ❤️'. Change 'Tannu' to lowercase 'tannu' and 'Mainn' (double n) to 'Main' (single n). Keep all other text unchanged."
-        }
-      ]
-    },
-    {
-      "id": "REQ-28",
-      "summary": "Update Memories page title from 'Hamari Beautiful memories' to 'Hamari Beautiful Story'",
-      "acceptanceCriteria": [
-        "Memories page displays title 'Hamari Beautiful Story'",
-        "Title maintains consistent styling with other page titles"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/MemoriesPage.tsx",
-          "operation": "modify",
-          "description": "Update the page title from 'Hamari Beautiful memories' to 'Hamari Beautiful Story'. Capitalize 'Story' and maintain consistent styling with other page titles."
-        }
-      ]
-    },
-    {
-      "id": "REQ-29",
-      "summary": "Organize 9 photo placeholder images with sequential naming (memory-1.jpg through memory-9.jpg) and update documentation",
-      "acceptanceCriteria": [
-        "Nine placeholder image files exist in frontend/public/assets directory",
-        "Files are named memory-1.jpg, memory-2.jpg, memory-3.jpg, memory-4.jpg, memory-5.jpg, memory-6.jpg, memory-7.jpg, memory-8.jpg, memory-9.jpg",
-        "Memories page component references these exact filenames",
-        "README documentation explains how to replace the placeholder images"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/memory-1.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-1.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-1.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-2.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-2.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-2.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-3.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-3.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-3.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-4.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-4.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-4.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-5.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-5.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-5.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-6.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-6.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-6.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-7.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-7.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-7.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-8.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-8.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-8.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/public/assets/memory-9.jpg",
-          "operation": "create",
-          "description": "Wire the generated image frontend/public/assets/generated/memory-9.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-9.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
-        },
-        {
-          "path": "frontend/README.md",
-          "operation": "modify",
-          "description": "Update the README documentation to explain how to replace all 9 placeholder images (memory-1.jpg through memory-9.jpg) in the frontend/public/assets directory. Include clear instructions that users can simply drop their own photos with these exact filenames without modifying any code. Update the count from 3 to 9 images."
+          "description": "Remove any custom CSS rules that apply blur effects to elements within the memories page. Ensure no global styles are adding backdrop-blur or filter blur to text containers."
         }
       ]
     }

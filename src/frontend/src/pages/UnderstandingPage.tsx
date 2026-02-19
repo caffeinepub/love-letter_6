@@ -7,7 +7,7 @@ export function UnderstandingPage() {
     <section className="section-padding text-center flex flex-col items-center justify-center min-h-[70vh]">
       <h2 className="heading-secondary mb-8">Main Samajh Raha Hoon</h2>
       
-      <div className="text-lg leading-relaxed max-w-2xl mx-auto space-y-4 mb-12">
+      <div className="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto space-y-4 mb-12 px-4">
         <p>Agar tumhe kabhi laga ki tum akeli effort kar rahi ho… I'm sorry.</p>
         <p>Agar kabhi tumhe laga ki main serious nahi tha… I'm sorry.</p>
         <p>Tum consistency deserve karti ho.</p>

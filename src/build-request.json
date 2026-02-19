@@ -1,225 +1,39 @@
 {
   "kind": "build_request",
-  "title": "Expand Memories gallery to 9 photos and restructure page flow with integrated mini game",
-  "projectName": "Romantic Letter",
+  "title": "Remove blur background from text lines",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-20",
-      "text": "Expand the Memories Page (/memories) photo gallery from 3 photos to exactly 9 photos displayed in a 3x3 grid layout with individual captions for each photo: 1. 'Tum meri peace ho.', 2. 'Main tumhe akela feel nahi hone dunga.', 3. 'Jo humne banaya hai woh special hai.', 4. 'Har moment tumhare saath important hai.', 5. 'Tum meri safe place ho.', 6. 'Hum perfect nahi, par real hain.', 7. 'Tumhare bina sab adhura lagta hai.', 8. 'Yeh sab yaadein mere liye priceless hain.', 9. 'Main yeh sab lose nahi karna chahta.'",
+      "id": "REQ-1",
+      "text": "Remove all blur backgrounds from text lines in the memories page, ensuring text appears on a fully transparent or solid background without any blur effect",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-20"
+          "msg-current"
         ],
         "quotes": [
-          "Create a 3x3 grid gallery with EXACTLY 9 photo placeholders. Each photo should have a small caption below it."
+          "The background of those line is still blurr pls remove that"
         ]
       },
       "acceptanceCriteria": [
-        "Memories page displays exactly 9 photo placeholders in a 3x3 grid",
-        "Each photo has its corresponding caption displayed below it",
-        "Grid maintains responsive design on mobile devices",
-        "Photo placeholders remain easy to replace (using frontend/public/assets/memory-1.jpg through memory-9.jpg)"
-      ]
-    },
-    {
-      "id": "REQ-21",
-      "text": "Restructure the site navigation from 6 pages to 5 pages by merging the One Chance page (/one-chance) and the Question page (/question) into a single One Chance page, and update all navigation flows accordingly: Landing (/) → Memories (/memories) → Understanding (/understanding) → One Chance (/one-chance) → Final (/final)",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Then below that show a mini game:",
-          "Add: Next → Final Page"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Site has exactly 5 pages total",
-        "One Chance page contains both action buttons and mini game sections",
-        "Question page route (/question) is removed from router configuration",
-        "All Back and Next navigation buttons flow correctly through the 5-page structure",
-        "One Chance page Next button navigates directly to Final page"
-      ]
-    },
-    {
-      "id": "REQ-22",
-      "text": "On the One Chance page, when the 'Let's Try Again ❤️' button is clicked, display a romantic glowing message 'I Love You 💋' and trigger the floating heart animation (20 hearts rising from bottom to top over 5 seconds)",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "If 'Let's Try Again ❤️' is clicked: Show a romantic glowing message: 'I Love You 💋' Add floating heart animation."
-        ]
-      },
-      "acceptanceCriteria": [
-        "'Let's Try Again ❤️' button shows glowing 'I Love You 💋' message when clicked",
-        "Floating hearts animation (20 hearts) triggers on button click",
-        "Message remains visible after hearts animation completes"
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "text": "On the One Chance page, when the 'Mujhe Thoda Time Chahiye 🤍' button is clicked, make the button move slightly to a random nearby position",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "If 'Mujhe Thoda Time Chahiye 🤍' is clicked: Make the button move slightly"
-        ]
-      },
-      "acceptanceCriteria": [
-        "'Mujhe Thoda Time Chahiye 🤍' button moves to a random position when clicked",
-        "Button movement is subtle (not too far from original position)",
-        "Button remains clickable after moving"
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "text": "Add a mini game section below the action buttons on the One Chance page with the question 'Kya tum mujhe ek chance dogi?' and two interactive buttons: 'Nahi 😡' (which moves slightly and shows the playful message 'Sach me? Soch lo phir se 😏' when clicked) and 'Haan ❤️' (which shows the glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' and triggers floating hearts animation when clicked)",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Game: Question: 'Kya tum mujhe ek chance dogi?' Two buttons: 'Nahi 😡' 'Haan ❤️'",
-          "If 'Nahi' clicked: Button moves slightly and shows playful message: 'Sach me? Soch lo phir se 😏'",
-          "If 'Haan' clicked: Show glowing romantic message: 'Mujhe pata tha ❤️ Thank you for trusting us.' Add floating hearts animation."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Mini game section appears below the action buttons with question 'Kya tum mujhe ek chance dogi?'",
-        "'Nahi 😡' button moves slightly when clicked and displays message 'Sach me? Soch lo phir se 😏'",
-        "'Haan ❤️' button displays glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' when clicked",
-        "'Haan ❤️' button triggers floating hearts animation when clicked",
-        "Both buttons remain interactive after their respective actions"
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "text": "Update the Understanding page text from 'Main words nahi, actions se prove karna chahta hoon.' to 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Main sirf bolna nahi… actions se prove karna chahta hoon."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Understanding page displays the updated text 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
-        "Other text on the Understanding page remains unchanged"
-      ]
-    },
-    {
-      "id": "REQ-26",
-      "text": "Update the Final page subtext to include three additional lines: 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' after the existing lines 'Breakup solution nahi hota.', 'Effort solution hota hai.', 'Aur main ready hoon.'",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Subtext: Breakup solution nahi hota. Effort solution hota hai. Aur main ready hoon. Na pressure. Na ego. Bas pyaar aur consistency."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Final page displays all six lines of subtext in order",
-        "New lines 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' appear after the existing three lines",
-        "Text maintains consistent styling with the rest of the page"
-      ]
-    },
-    {
-      "id": "REQ-27",
-      "text": "Update the Landing page heading from 'Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️' to 'Hey tannu 🌷… Main Give Up Nahi Kar Raha ❤️' (change 'Tannu' to lowercase 'tannu' and 'Mainn' to 'Main')",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Heading: 'Hey tannu 🌷… Main Give Up Nahi Kar Raha ❤️'"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Landing page heading displays 'tannu' in lowercase",
-        "Landing page heading displays 'Main' with single 'n'",
-        "Rest of the heading text remains unchanged"
-      ]
-    },
-    {
-      "id": "REQ-28",
-      "text": "Update the Memories page title from 'Hamari Beautiful memories' to 'Hamari Beautiful Story' (capitalize 'Story')",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Title: 'Hamari Beautiful Story'"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Memories page displays title 'Hamari Beautiful Story'",
-        "Title maintains consistent styling with other page titles"
-      ]
-    },
-    {
-      "id": "REQ-29",
-      "text": "Organize 9 photo placeholder images in the frontend/public/assets directory with clear sequential naming (memory-1.jpg through memory-9.jpg) to make it easy for users to replace them with their own photos",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-20"
-        ],
-        "quotes": [
-          "Make image placeholders easy to replace."
-        ]
-      },
-      "acceptanceCriteria": [
-        "Nine placeholder image files exist in frontend/public/assets directory",
-        "Files are named memory-1.jpg, memory-2.jpg, memory-3.jpg, memory-4.jpg, memory-5.jpg, memory-6.jpg, memory-7.jpg, memory-8.jpg, memory-9.jpg",
-        "Memories page component references these exact filenames",
-        "README documentation explains how to replace the placeholder images"
+        "Text lines have no blur effect on their backgrounds",
+        "Text remains readable against the photo collage",
+        "All text styling (color, size, positioning) is preserved"
       ]
     }
   ],
   "constraints": [
-    "Do not modify the Internet Identity authentication hooks (frontend/src/hooks/useInternetIdentity.ts, useActor.ts)",
-    "Do not modify the main.tsx entry point or UI component library files (frontend/src/components/ui)",
-    "Maintain the existing soft pastel pink and white theme with warm golden glow effects",
-    "Keep the subtle floating hearts background animation on all pages",
-    "Preserve mobile-friendly responsive design across all pages",
-    "Do not create a single scrolling page; each section must remain a separate routed page"
+    "Do not modify backend files",
+    "Preserve existing photo collage grid layout",
+    "Maintain text readability"
   ],
   "nonGoals": [
-    "Adding music or audio features",
-    "Implementing backend logic or data persistence",
-    "Adding real-time chat or messaging features",
-    "Integrating external authentication beyond Internet Identity",
-    "Creating additional pages beyond the specified 5-page structure",
-    "Adding video content or video galleries"
+    "Changing text content",
+    "Modifying photo arrangement",
+    "Altering navigation flow"
   ],
   "imageRequirements": {
-    "required": [
-      "Romantic couple photo placeholder with soft pink overlay (memory-1.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-2.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-3.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-4.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-5.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-6.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-7.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-8.dim_300x300.jpg)",
-      "Romantic couple photo placeholder with soft pink overlay (memory-9.dim_300x300.jpg)"
-    ],
+    "required": [],
     "edits": []
   }
 }

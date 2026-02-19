@@ -2,7 +2,7 @@ import { Outlet } from '@tanstack/react-router';
 
 export function Layout() {
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative bg-pink-50">
       <div className="floating-hearts-bg" />
       <Outlet />
       <footer className="text-center py-6 text-sm text-gray-600">
