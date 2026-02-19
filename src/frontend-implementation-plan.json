@@ -1,288 +1,234 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Convert to multi-page navigation structure with 6 separate pages",
+  "title": "Expand Memories gallery to 9 photos and restructure page flow with integrated mini game",
   "requirements": [
     {
-      "id": "REQ-10",
-      "summary": "Implement React Router for multi-page navigation structure with routes for 6 separate pages",
+      "id": "REQ-20",
+      "summary": "Expand Memories page gallery from 3 to 9 photos in a 3x3 grid with individual captions",
       "acceptanceCriteria": [
-        "Each page has its own route and URL",
-        "Browser back/forward buttons work correctly",
-        "Navigation maintains consistent theme across pages"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Replace single-page layout with React Router setup including BrowserRouter, Routes, and Route components for all 6 pages (/, /memories, /understanding, /one-chance, /question, /final). Remove existing section components from App.tsx as they will be reorganized into separate page components."
-        },
-        {
-          "path": "frontend/src/pages/LandingPage.tsx",
-          "operation": "create",
-          "description": "Create Landing page component that will render at route /. This component will integrate the HeroSection component and provide navigation to the Memories page."
-        },
-        {
-          "path": "frontend/src/pages/MemoriesPage.tsx",
-          "operation": "create",
-          "description": "Create Memories page component that will render at route /memories. This component will integrate the GallerySection component and provide Back/Next navigation buttons."
-        },
-        {
-          "path": "frontend/src/pages/UnderstandingPage.tsx",
-          "operation": "create",
-          "description": "Create Understanding page component that will render at route /understanding. This component will integrate the UnderstandingSection component and provide Back/Next navigation buttons."
-        },
-        {
-          "path": "frontend/src/pages/OneChancePage.tsx",
-          "operation": "create",
-          "description": "Create One Chance page component that will render at route /one-chance. This component will integrate the ActionButtonsSection component and provide Next navigation button."
-        },
-        {
-          "path": "frontend/src/pages/QuestionPage.tsx",
-          "operation": "create",
-          "description": "Create Cute Game page component that will render at route /question. This component will integrate the QuestionSection component and provide Next navigation button to the final page."
-        },
-        {
-          "path": "frontend/src/pages/FinalPage.tsx",
-          "operation": "create",
-          "description": "Create Final page component that will render at route /final. This component will integrate the ClosingSection component with no navigation buttons as this is the terminal page."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Create Landing Page component with romantic heading and navigation button to Memories page",
-      "acceptanceCriteria": [
-        "Landing page displays heading with Tannu's name",
-        "Button click navigates to /memories route",
-        "Layout is centered and mobile-friendly"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/LandingPage.tsx",
-          "operation": "modify",
-          "description": "Implement Landing page content including heading 'Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️', subtext 'Mujhe pata hai tum hurt ho… par main effort dena chahta hoon.', and a prominent button labeled 'Please ek baar padh lo 🥺' that uses React Router's useNavigate hook to navigate to /memories route."
-        },
-        {
-          "path": "frontend/src/components/HeroSection.tsx",
-          "operation": "modify",
-          "description": "Refactor HeroSection to be reusable within the Landing page context, removing any navigation logic and focusing solely on displaying the heading and subtext with consistent styling."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Create Memories Page with photo gallery, captions, and navigation buttons",
-      "acceptanceCriteria": [
-        "Gallery displays 3 placeholder images with captions",
-        "Images are stored in a location easy for users to replace",
-        "Back button navigates to /",
-        "Next button navigates to /understanding"
+        "Memories page displays exactly 9 photo placeholders in a 3x3 grid",
+        "Each photo has its corresponding caption displayed below it",
+        "Grid maintains responsive design on mobile devices",
+        "Photo placeholders remain easy to replace (using frontend/public/assets/memory-1.jpg through memory-9.jpg)"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/MemoriesPage.tsx",
           "operation": "modify",
-          "description": "Implement Memories page with title 'Hamari Beautiful memories', integrate GallerySection component, display three captions ('Tum meri peace ho.', 'Main tumhe akela feel nahi hone dunga.', 'Jo humne banaya hai woh special hai.'), add Back button navigating to / and Next button navigating to /understanding using React Router's Link or useNavigate."
-        },
-        {
-          "path": "frontend/src/components/GallerySection.tsx",
-          "operation": "modify",
-          "description": "Refactor GallerySection to display 3 placeholder images from frontend/public/assets/memory-1.jpg, frontend/public/assets/memory-2.jpg, and frontend/public/assets/memory-3.jpg with proper image loading and responsive layout. Include captions below each image."
+          "description": "Expand the photo gallery from 3 photos to 9 photos displayed in a 3x3 grid layout. Update the image references to use memory-1.jpg through memory-9.jpg from frontend/public/assets/. Add the corresponding captions for each photo: 1. 'Tum meri peace ho.', 2. 'Main tumhe akela feel nahi hone dunga.', 3. 'Jo humne banaya hai woh special hai.', 4. 'Har moment tumhare saath important hai.', 5. 'Tum meri safe place ho.', 6. 'Hum perfect nahi, par real hain.', 7. 'Tumhare bina sab adhura lagta hai.', 8. 'Yeh sab yaadein mere liye priceless hain.', 9. 'Main yeh sab lose nahi karna chahta.' Ensure the grid is responsive and works well on mobile devices."
         }
       ]
     },
     {
-      "id": "REQ-13",
-      "summary": "Create Understanding Page with apologetic text and navigation buttons",
+      "id": "REQ-21",
+      "summary": "Restructure site navigation from 6 pages to 5 by merging One Chance and Question pages",
       "acceptanceCriteria": [
-        "All three text paragraphs display correctly",
-        "Back button navigates to /memories",
-        "Next button navigates to /one-chance"
+        "Site has exactly 5 pages total",
+        "One Chance page contains both action buttons and mini game sections",
+        "Question page route (/question) is removed from router configuration",
+        "All Back and Next navigation buttons flow correctly through the 5-page structure",
+        "One Chance page Next button navigates directly to Final page"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/UnderstandingPage.tsx",
+          "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Implement Understanding page with title 'Main Samajh Raha Hoon', integrate UnderstandingSection component displaying three paragraphs ('Agar tumhe kabhi laga ki tum akeli effort kar rahi ho… I'm sorry.', 'Tum consistency aur security dono deserve karti ho.', 'Main words nahi, actions se prove karna chahta hoon.'), add Back button navigating to /memories and Next button navigating to /one-chance."
+          "description": "Remove the /question route from the router configuration, keeping only 5 routes: landing (/), memories (/memories), understanding (/understanding), one-chance (/one-chance), and final (/final). Update route definitions to reflect the new 5-page structure."
         },
         {
-          "path": "frontend/src/components/UnderstandingSection.tsx",
+          "path": "frontend/src/pages/OneChancePage.tsx",
           "operation": "modify",
-          "description": "Refactor UnderstandingSection to work within the Understanding page context, ensuring all text content is displayed with proper typography and spacing, removing any navigation logic."
+          "description": "Merge the mini game section from QuestionPage into OneChancePage. Update the Next button to navigate directly to /final instead of /question. Ensure the page now contains both the original action buttons section and the mini game section (which will be implemented in REQ-24). Update all navigation flows to reflect the merged structure."
+        },
+        {
+          "path": "frontend/src/pages/QuestionPage.tsx",
+          "operation": "delete",
+          "description": "Delete the QuestionPage component file as its functionality has been merged into OneChancePage."
+        },
+        {
+          "path": "frontend/src/pages/UnderstandingPage.tsx",
+          "operation": "modify",
+          "description": "Update the Next button to navigate to /one-chance (no change needed if already correct, but verify the navigation flow works with the restructured 5-page site)."
+        },
+        {
+          "path": "frontend/src/pages/MemoriesPage.tsx",
+          "operation": "modify",
+          "description": "Verify and ensure the Next button navigates to /understanding (should already be correct, but confirm navigation flows work with the restructured 5-page site)."
         }
       ]
     },
     {
-      "id": "REQ-14",
-      "summary": "Create One Chance Page with commitment text, action buttons, and navigation",
+      "id": "REQ-22",
+      "summary": "Display glowing 'I Love You 💋' message and trigger floating hearts when 'Let's Try Again ❤️' is clicked",
       "acceptanceCriteria": [
-        "Both action buttons display with appropriate styling",
-        "Next button navigates to /question"
+        "'Let's Try Again ❤️' button shows glowing 'I Love You 💋' message when clicked",
+        "Floating hearts animation (20 hearts) triggers on button click",
+        "Message remains visible after hearts animation completes"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/OneChancePage.tsx",
           "operation": "modify",
-          "description": "Implement One Chance page with title 'Ek Chance… Pyaar Ke Naam 🤍', four lines of text ('Main pressure nahi de raha.', 'Bas ek real chance maang raha hoon.', 'Try karne se sab ho jata hai.', 'Is baar effort pura hoga.'), integrate ActionButtonsSection component with two buttons ('Let's Try Again ❤️' and 'Mujhe Thoda Time Chahiye 🤍'), and add Next button navigating to /question."
-        },
-        {
-          "path": "frontend/src/components/ActionButtonsSection.tsx",
-          "operation": "modify",
-          "description": "Refactor ActionButtonsSection to work within the One Chance page context, ensuring both action buttons are properly styled and functional, removing any navigation logic from the component itself."
+          "description": "Add click handler to the 'Let's Try Again ❤️' button that displays a glowing romantic message 'I Love You 💋' and triggers the floating heart animation using the useHeartAnimation hook. Ensure the message remains visible after the hearts animation completes (5 seconds). Apply glowing styles consistent with the existing theme."
         }
       ]
     },
     {
-      "id": "REQ-15",
-      "summary": "Create Cute Game Page with interactive question buttons and heart animation",
+      "id": "REQ-23",
+      "summary": "Make 'Mujhe Thoda Time Chahiye 🤍' button move to random position when clicked",
       "acceptanceCriteria": [
-        "Nahi button displays popup message without navigation",
-        "Haan button displays glowing message and triggers floating heart animation",
-        "Next button navigates to /final"
+        "'Mujhe Thoda Time Chahiye 🤍' button moves to a random position when clicked",
+        "Button movement is subtle (not too far from original position)",
+        "Button remains clickable after moving"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/QuestionPage.tsx",
+          "path": "frontend/src/pages/OneChancePage.tsx",
           "operation": "modify",
-          "description": "Implement Question page with title 'Important Question 😌', question text 'Kya tum abhi bhi mujhse pyaar karti ho?', integrate QuestionSection component with useHeartAnimation hook for animation trigger, and add Next button navigating to /final."
-        },
-        {
-          "path": "frontend/src/components/QuestionSection.tsx",
-          "operation": "modify",
-          "description": "Refactor QuestionSection to work within the Question page context, ensuring 'Nahi 😡' button shows popup message 'Sach me? Soch lo phir se 😏' on click, 'Haan Obviously ❤️' button shows glowing message 'Mujhe pata tha ❤️' and calls triggerHeartAnimation prop function, maintaining existing moving button behavior."
+          "description": "Add click handler to the 'Mujhe Thoda Time Chahiye 🤍' button that moves the button to a random nearby position using transform/translate CSS. Ensure movement is subtle (within 50-100px) and the button remains clickable after moving. Use state to track button position."
         }
       ]
     },
     {
-      "id": "REQ-16",
-      "summary": "Create Final Page with glowing commitment text and heart animation",
+      "id": "REQ-24",
+      "summary": "Add mini game section with interactive 'Nahi 😡' and 'Haan ❤️' buttons below action buttons",
       "acceptanceCriteria": [
-        "Glowing text effect is visible on heading",
-        "Background has soft romantic styling",
-        "Heart animation plays automatically when page loads",
-        "No navigation buttons (final page)"
+        "Mini game section appears below the action buttons with question 'Kya tum mujhe ek chance dogi?'",
+        "'Nahi 😡' button moves slightly when clicked and displays message 'Sach me? Soch lo phir se 😏'",
+        "'Haan ❤️' button displays glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' when clicked",
+        "'Haan ❤️' button triggers floating hearts animation when clicked",
+        "Both buttons remain interactive after their respective actions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/OneChancePage.tsx",
+          "operation": "modify",
+          "description": "Add a mini game section below the existing action buttons. Display the question 'Kya tum mujhe ek chance dogi?' with two interactive buttons: 'Nahi 😡' and 'Haan ❤️'. For 'Nahi 😡': add click handler that moves the button slightly to a random position and shows the playful message 'Sach me? Soch lo phir se 😏'. For 'Haan ❤️': add click handler that displays the glowing message 'Mujhe pata tha ❤️ Thank you for trusting us.' and triggers the floating hearts animation using useHeartAnimation hook. Ensure both buttons remain interactive after their actions and messages are displayed with appropriate styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-25",
+      "summary": "Update Understanding page text to 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
+      "acceptanceCriteria": [
+        "Understanding page displays the updated text 'Main sirf bolna nahi… actions se prove karna chahta hoon.'",
+        "Other text on the Understanding page remains unchanged"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/UnderstandingPage.tsx",
+          "operation": "modify",
+          "description": "Update the text from 'Main words nahi, actions se prove karna chahta hoon.' to 'Main sirf bolna nahi… actions se prove karna chahta hoon.' Ensure all other text on the page remains unchanged."
+        }
+      ]
+    },
+    {
+      "id": "REQ-26",
+      "summary": "Add three additional subtext lines to Final page: 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.'",
+      "acceptanceCriteria": [
+        "Final page displays all six lines of subtext in order",
+        "New lines 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' appear after the existing three lines",
+        "Text maintains consistent styling with the rest of the page"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/FinalPage.tsx",
           "operation": "modify",
-          "description": "Implement Final page with large glowing text 'Main Aaj Bhi Tumhe Choose Karta Hoon.', three lines of subtext ('Breakup solution nahi hota.', 'Effort solution hota hai.', 'Aur main ready hoon.'), integrate ClosingSection component, apply soft romantic background styling, and use useHeartAnimation hook to trigger heart animation automatically on page load via useEffect."
-        },
-        {
-          "path": "frontend/src/components/ClosingSection.tsx",
-          "operation": "modify",
-          "description": "Refactor ClosingSection to work within the Final page context, ensuring glowing text effect is applied to the main heading and all subtext is displayed with proper typography and spacing."
+          "description": "Add three additional lines to the subtext after the existing lines 'Breakup solution nahi hota.', 'Effort solution hota hai.', 'Aur main ready hoon.' The new lines are: 'Na pressure.', 'Na ego.', 'Bas pyaar aur consistency.' Ensure all six lines display in order with consistent styling."
         }
       ]
     },
     {
-      "id": "REQ-17",
-      "summary": "Apply consistent theme across all pages with pastel pink/white colors, golden glow effects, and floating hearts animation",
+      "id": "REQ-27",
+      "summary": "Update Landing page heading: change 'Tannu' to lowercase 'tannu' and 'Mainn' to 'Main'",
       "acceptanceCriteria": [
-        "All pages use consistent pastel pink/white color palette",
-        "Floating hearts animation appears subtly in background across pages",
-        "Text is easily readable on mobile devices",
-        "Layout adapts properly to different screen sizes",
-        "Navigation buttons maintain consistent styling"
+        "Landing page heading displays 'tannu' in lowercase",
+        "Landing page heading displays 'Main' with single 'n'",
+        "Rest of the heading text remains unchanged"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/index.css",
+          "path": "frontend/src/pages/LandingPage.tsx",
           "operation": "modify",
-          "description": "Update global styles to ensure soft pastel pink and white color scheme is applied consistently, add warm golden glow effects using box-shadow and text-shadow, ensure floating hearts background animation is subtle and present across all pages, set minimum body text size to 18px, verify mobile-responsive design with adequate spacing and centered layouts."
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "create",
-          "description": "Create Layout wrapper component that applies consistent theme elements (background, floating hearts animation, container styling) to all pages. This component will wrap page content and ensure consistent spacing, centering, and responsive behavior across all routes."
-        },
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wrap all Route components with the Layout component to ensure consistent theme application across all pages."
-        },
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Add custom Tailwind configuration for pastel pink color variants, golden glow utilities, and ensure responsive breakpoints are properly configured for mobile-friendly design."
+          "description": "Update the heading text from 'Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️' to 'Hey tannu 🌷… Main Give Up Nahi Kar Raha ❤️'. Change 'Tannu' to lowercase 'tannu' and 'Mainn' (double n) to 'Main' (single n). Keep all other text unchanged."
         }
       ]
     },
     {
-      "id": "REQ-18",
-      "summary": "Refactor existing section components to work within the new multi-page structure",
+      "id": "REQ-28",
+      "summary": "Update Memories page title from 'Hamari Beautiful memories' to 'Hamari Beautiful Story'",
       "acceptanceCriteria": [
-        "Existing section components are reused in appropriate page components",
-        "No duplication of logic or styling",
-        "All interactive features continue to work correctly"
+        "Memories page displays title 'Hamari Beautiful Story'",
+        "Title maintains consistent styling with other page titles"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/HeroSection.tsx",
+          "path": "frontend/src/pages/MemoriesPage.tsx",
           "operation": "modify",
-          "description": "Refactor HeroSection to be a pure presentational component that accepts props for heading and subtext, removing any navigation logic to be handled by the parent LandingPage component."
-        },
-        {
-          "path": "frontend/src/components/GallerySection.tsx",
-          "operation": "modify",
-          "description": "Refactor GallerySection to accept image paths and captions as props, making it reusable and decoupled from specific page logic."
-        },
-        {
-          "path": "frontend/src/components/UnderstandingSection.tsx",
-          "operation": "modify",
-          "description": "Refactor UnderstandingSection to accept text content as props or keep static content, ensuring it's a pure presentational component without navigation concerns."
-        },
-        {
-          "path": "frontend/src/components/ActionButtonsSection.tsx",
-          "operation": "modify",
-          "description": "Refactor ActionButtonsSection to accept button labels and click handlers as props, removing hardcoded navigation to make it reusable across different contexts."
-        },
-        {
-          "path": "frontend/src/components/QuestionSection.tsx",
-          "operation": "modify",
-          "description": "Refactor QuestionSection to accept onYesClick callback prop for triggering heart animation, maintaining existing interactive features (moving No button) while decoupling animation logic."
-        },
-        {
-          "path": "frontend/src/components/ClosingSection.tsx",
-          "operation": "modify",
-          "description": "Refactor ClosingSection to accept heading and subtext as props or keep static content, ensuring it's a pure presentational component with glowing text effect styling."
+          "description": "Update the page title from 'Hamari Beautiful memories' to 'Hamari Beautiful Story'. Capitalize 'Story' and maintain consistent styling with other page titles."
         }
       ]
     },
     {
-      "id": "REQ-19",
-      "summary": "Organize photo gallery placeholder images in frontend/public/assets directory with clear naming",
+      "id": "REQ-29",
+      "summary": "Organize 9 photo placeholder images with sequential naming (memory-1.jpg through memory-9.jpg) and update documentation",
       "acceptanceCriteria": [
-        "Placeholder images are in a clearly labeled public directory",
-        "Image filenames are intuitive and documented",
-        "Replacing images requires only file replacement, no code changes"
+        "Nine placeholder image files exist in frontend/public/assets directory",
+        "Files are named memory-1.jpg, memory-2.jpg, memory-3.jpg, memory-4.jpg, memory-5.jpg, memory-6.jpg, memory-7.jpg, memory-8.jpg, memory-9.jpg",
+        "Memories page component references these exact filenames",
+        "README documentation explains how to replace the placeholder images"
       ],
       "file_operations": [
         {
           "path": "frontend/public/assets/memory-1.jpg",
           "operation": "create",
-          "description": "Create placeholder file for first memory gallery image. Reference the generated image at frontend/public/assets/generated/memory-1.dim_600x600.jpg as the initial placeholder content. Users can replace this file with their own photo without code changes."
+          "description": "Wire the generated image frontend/public/assets/generated/memory-1.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-1.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
         },
         {
           "path": "frontend/public/assets/memory-2.jpg",
           "operation": "create",
-          "description": "Create placeholder file for second memory gallery image. Reference the generated image at frontend/public/assets/generated/memory-2.dim_600x600.jpg as the initial placeholder content. Users can replace this file with their own photo without code changes."
+          "description": "Wire the generated image frontend/public/assets/generated/memory-2.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-2.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
         },
         {
           "path": "frontend/public/assets/memory-3.jpg",
           "operation": "create",
-          "description": "Create placeholder file for third memory gallery image. Reference the generated image at frontend/public/assets/generated/memory-3.dim_600x600.jpg as the initial placeholder content. Users can replace this file with their own photo without code changes."
+          "description": "Wire the generated image frontend/public/assets/generated/memory-3.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-3.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
         },
         {
-          "path": "frontend/src/components/GallerySection.tsx",
-          "operation": "modify",
-          "description": "Update GallerySection to reference placeholder images using paths /assets/memory-1.jpg, /assets/memory-2.jpg, and /assets/memory-3.jpg. Include comments in the code explaining that users can replace these files in frontend/public/assets directory."
+          "path": "frontend/public/assets/memory-4.jpg",
+          "operation": "create",
+          "description": "Wire the generated image frontend/public/assets/generated/memory-4.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-4.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
+        },
+        {
+          "path": "frontend/public/assets/memory-5.jpg",
+          "operation": "create",
+          "description": "Wire the generated image frontend/public/assets/generated/memory-5.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-5.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
+        },
+        {
+          "path": "frontend/public/assets/memory-6.jpg",
+          "operation": "create",
+          "description": "Wire the generated image frontend/public/assets/generated/memory-6.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-6.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
+        },
+        {
+          "path": "frontend/public/assets/memory-7.jpg",
+          "operation": "create",
+          "description": "Wire the generated image frontend/public/assets/generated/memory-7.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-7.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
+        },
+        {
+          "path": "frontend/public/assets/memory-8.jpg",
+          "operation": "create",
+          "description": "Wire the generated image frontend/public/assets/generated/memory-8.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-8.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
+        },
+        {
+          "path": "frontend/public/assets/memory-9.jpg",
+          "operation": "create",
+          "description": "Wire the generated image frontend/public/assets/generated/memory-9.dim_300x300.jpg into the UI as a static asset at frontend/public/assets/memory-9.jpg. This placeholder image features a romantic couple photo with soft pink overlay and will be easily replaceable by users."
         },
         {
           "path": "frontend/README.md",
-          "operation": "create",
-          "description": "Create README documentation explaining how to replace placeholder images in frontend/public/assets directory. Include clear instructions: 1) Navigate to frontend/public/assets, 2) Replace memory-1.jpg, memory-2.jpg, memory-3.jpg with your own photos, 3) Keep the same filenames, 4) Recommended dimensions are 600x600px for best display."
+          "operation": "modify",
+          "description": "Update the README documentation to explain how to replace all 9 placeholder images (memory-1.jpg through memory-9.jpg) in the frontend/public/assets directory. Include clear instructions that users can simply drop their own photos with these exact filenames without modifying any code. Update the count from 3 to 9 images."
         }
       ]
     }

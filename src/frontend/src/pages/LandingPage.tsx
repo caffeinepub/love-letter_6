@@ -6,7 +6,7 @@ export function LandingPage() {
   return (
     <section className="section-padding text-center flex flex-col items-center justify-center min-h-[80vh]">
       <h1 className="heading-primary mb-6 max-w-3xl">
-        Hey Tannu 🌷… Mainn Give Up Nahi Kar Raha ❤️
+        Hey tannu 🌷… Main Give Up Nahi Kar Raha ❤️
       </h1>
       <p className="text-xl mb-10 max-w-xl">
         Mujhe pata hai tum hurt ho… par main effort dena chahta hoon.

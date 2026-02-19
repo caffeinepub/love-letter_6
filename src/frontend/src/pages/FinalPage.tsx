@@ -18,6 +18,9 @@ export function FinalPage() {
         <p>Breakup solution nahi hota.</p>
         <p>Effort solution hota hai.</p>
         <p>Aur main ready hoon.</p>
+        <p>Na pressure.</p>
+        <p>Na ego.</p>
+        <p>Bas pyaar aur consistency.</p>
       </div>
 
       <div className="mt-8 text-4xl animate-pulse">❤️</div>

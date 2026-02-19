@@ -9,8 +9,10 @@ export function UnderstandingPage() {
       
       <div className="text-lg leading-relaxed max-w-2xl mx-auto space-y-4 mb-12">
         <p>Agar tumhe kabhi laga ki tum akeli effort kar rahi ho… I'm sorry.</p>
-        <p>Tum consistency aur security dono deserve karti ho.</p>
-        <p>Main words nahi, actions se prove karna chahta hoon.</p>
+        <p>Agar kabhi tumhe laga ki main serious nahi tha… I'm sorry.</p>
+        <p>Tum consistency deserve karti ho.</p>
+        <p>Tum security deserve karti ho.</p>
+        <p>Main sirf bolna nahi… actions se prove karna chahta hoon.</p>
       </div>
 
       <div className="flex flex-wrap justify-center gap-4">

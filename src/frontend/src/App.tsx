@@ -4,7 +4,6 @@ import { LandingPage } from './pages/LandingPage';
 import { MemoriesPage } from './pages/MemoriesPage';
 import { UnderstandingPage } from './pages/UnderstandingPage';
 import { OneChancePage } from './pages/OneChancePage';
-import { QuestionPage } from './pages/QuestionPage';
 import { FinalPage } from './pages/FinalPage';
 
 const rootRoute = createRootRoute({
@@ -35,12 +34,6 @@ const oneChanceRoute = createRoute({
   component: OneChancePage,
 });
 
-const questionRoute = createRoute({
-  getParentRoute: () => rootRoute,
-  path: '/question',
-  component: QuestionPage,
-});
-
 const finalRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/final',
@@ -52,7 +45,6 @@ const routeTree = rootRoute.addChildren([
   memoriesRoute,
   understandingRoute,
   oneChanceRoute,
-  questionRoute,
   finalRoute,
 ]);
 
